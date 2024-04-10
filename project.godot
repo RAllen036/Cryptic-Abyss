@@ -17,6 +17,11 @@ config/icon="res://icon.svg"
 [autoload]
 
 MultiplayerInput="*res://Addons/godot-multiplayer-input-cdec8355470808e4957cd58763d577a7acfd9850/addons/multiplayer_input/multiplayer_input.gd"
+ManagerCollection="*res://Resources/ManagerCollection.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-multiplayer-input-cdec8355470808e4957cd58763d577a7acfd9850/addons/multiplayer_input/plugin.cfg", "res://addons/script-ide/plugin.cfg")
 
 [file_customization]
 

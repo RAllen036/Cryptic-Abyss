@@ -1,0 +1,131 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlt76xlubdgy1"]
+
+[ext_resource type="Script" path="res://Scenes/StartMenu/StartMenu.gd" id="1_1rskt"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_6wt55"]
+thickness = 2
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1rskt")
+
+[node name="BackgroundControl" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="BackgroundControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.529412, 0.937255, 1)
+
+[node name="BackgrondImage" type="TextureRect" parent="BackgroundControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Foregorund" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Foregorund"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftBox" type="Control" parent="Foregorund/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Foregorund/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TopBox" type="Control" parent="Foregorund/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="CenterBox" type="Control" parent="Foregorund/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="Foregorund/HBoxContainer/VBoxContainer/CenterBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Foregorund/HBoxContainer/VBoxContainer/CenterBox/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Foregorund/HBoxContainer/VBoxContainer/CenterBox/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Start" type="Button" parent="Foregorund/HBoxContainer/VBoxContainer/CenterBox/CenterContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 50)
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+disabled = true
+text = "Start"
+
+[node name="Settings" type="Button" parent="Foregorund/HBoxContainer/VBoxContainer/CenterBox/CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(140, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Settings
+"
+
+[node name="HSeparator" type="HSeparator" parent="Foregorund/HBoxContainer/VBoxContainer/CenterBox/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_6wt55")
+
+[node name="Quit" type="Button" parent="Foregorund/HBoxContainer/VBoxContainer/CenterBox/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(140, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Quit
+"
+
+[node name="BottomBox" type="Control" parent="Foregorund/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="RightBox" type="Control" parent="Foregorund/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+
+[connection signal="pressed" from="Foregorund/HBoxContainer/VBoxContainer/CenterBox/CenterContainer/VBoxContainer/HBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Foregorund/HBoxContainer/VBoxContainer/CenterBox/CenterContainer/VBoxContainer/HBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Foregorund/HBoxContainer/VBoxContainer/CenterBox/CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
