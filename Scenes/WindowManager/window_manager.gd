@@ -4,8 +4,8 @@ extends Node
 signal stopped
 
 @export var packed_window: PackedScene = null
-var packed_world: PackedScene
 
+var packed_world: PackedScene
 var inst_windows: Dictionary = {}
 
 func _ready():
