@@ -1,3 +1,4 @@
+class_name PlayerWindow 
 extends Window
 
 signal leaving(id: int)
@@ -28,5 +29,5 @@ func add_world(world: PackedScene) -> Node3D:
 	
 	return inst_world
 
-func _on_close_requested():
+func _on_close_requested() -> void:
 	leaving.emit(id)

@@ -6,3 +6,5 @@
 script = ExtResource("1_ta6j3")
 
 [node name="PlayerHolder" type="Marker3D" parent="."]
+
+[node name="PlayerHandler" type="Node" parent="."]

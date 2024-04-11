@@ -3,8 +3,6 @@ extends Node
 
 signal stopped
 
-@export var packed_window: PackedScene = null
-
 var packed_world: PackedScene
 var inst_windows: Dictionary = {}
 
@@ -52,8 +50,9 @@ func add_window(player_id: int) -> RemoteTransform3D:
 		push_error("Player attempted to instanciate another window instance.")
 		return null
 	
-	var inst_window: Window = packed_window.instantiate()
+	var inst_window: Window = PlayerWindow.new()
 	self.add_child(inst_window.window)
+	inst_window.connect("leaving", remove_window)
 	var inst_transform: RemoteTransform3D = inst_window.window.init()
 	
 	var inst_world: Node3D = null
@@ -63,9 +62,9 @@ func add_window(player_id: int) -> RemoteTransform3D:
 	
 	# Create window data
 	
-	inst_windows.merge({
-		player_id : {window = inst_window, world = inst_world}
-	})
+	inst_windows[player_id] = {
+		window = inst_window, world = inst_world
+	}
 	
 	return inst_transform
 
