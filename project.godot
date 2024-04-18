@@ -11,14 +11,18 @@ config_version=5
 [application]
 
 config/name="Cryptic-abyss"
+run/main_scene="res://Scenes/GameManager/game_manager.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 MultiplayerInput="*res://Addons/godot-multiplayer-input-cdec8355470808e4957cd58763d577a7acfd9850/addons/multiplayer_input/multiplayer_input.gd"
-ManagerCollection="*res://Resources/ManagerCollection.gd"
 PlayerManager="*res://Scenes/Player/Manager/player_manager.gd"
+
+[display]
+
+window/subwindows/embed_subwindows=false
 
 [editor_plugins]
 

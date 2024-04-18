@@ -19,7 +19,7 @@ signal connection_changed(connected: bool)
 var device: int
 
 ## Whether this device is currently connected
-var is_connected: bool = true
+var is_device_connected: bool = true
 
 func _init(device_num: int):
 	device = device_num
@@ -77,48 +77,48 @@ func stop_vibration():
 
 ## This is equivalent to Input.get_action_raw_strength except it will only check the relevant device.
 func get_action_raw_strength(action: StringName, exact_match: bool = false) -> float:
-	if !is_connected: return 0.0
+	if !is_device_connected: return 0.0
 	return MultiplayerInput.get_action_raw_strength(device, action, exact_match)
 
 ## This is equivalent to Input.get_action_strength except it will only check the relevant device.
 func get_action_strength(action: StringName, exact_match: bool = false) -> float:
-	if !is_connected: return 0.0
+	if !is_device_connected: return 0.0
 	return MultiplayerInput.get_action_strength(device, action, exact_match)
 
 ## This is equivalent to Input.get_axis except it will only check the relevant device.
 func get_axis(negative_action: StringName, positive_action: StringName) -> float:
-	if !is_connected: return 0.0
+	if !is_device_connected: return 0.0
 	return MultiplayerInput.get_axis(device, negative_action, positive_action)
 
 ## This is equivalent to Input.get_vector except it will only check the relevant device.
 func get_vector(negative_x: StringName, positive_x: StringName, negative_y: StringName, positive_y: StringName, deadzone: float = -1.0) -> Vector2:
-	if !is_connected: return Vector2.ZERO
+	if !is_device_connected: return Vector2.ZERO
 	return MultiplayerInput.get_vector(device, negative_x, positive_x, negative_y, positive_y, deadzone)
 
 ## This is equivalent to Input.is_action_just_pressed except it will only check the relevant device.
 func is_action_just_pressed(action: StringName, exact_match: bool = false) -> bool:
-	if !is_connected: return false
+	if !is_device_connected: return false
 	return MultiplayerInput.is_action_just_pressed(device, action, exact_match)
 
 ## This is equivalent to Input.is_action_just_released except it will only check the relevant device.
 func is_action_just_released(action: StringName, exact_match: bool = false) -> bool:
-	if !is_connected: return false
+	if !is_device_connected: return false
 	return MultiplayerInput.is_action_just_released(device, action, exact_match)
 
 ## This is equivalent to Input.is_action_pressed except it will only check the relevant device.
 func is_action_pressed(action: StringName, exact_match: bool = false) -> bool:
-	if !is_connected: return false
+	if !is_device_connected: return false
 	return MultiplayerInput.is_action_pressed(device, action, exact_match)
 
 ## Takes exclusive control over all "ui_" actions.
 ## See MultiplayerInput.set_ui_action_device() doc for more info.
 func take_ui_actions():
-	if !is_connected: return
+	if !is_device_connected: return
 	MultiplayerInput.set_ui_action_device(device)
 
 ## Internal method that is called whenever any device is connected or disconnected.
-## This is how this object keeps its "is_connected" property updated.
+## This is how this object keeps its "is_device_connected" property updated.
 func _on_joy_connection_changed(_device: int, connected: bool):
 	if device == _device:
 		connection_changed.emit(connected)
-		is_connected = connected
+		is_device_connected = connected

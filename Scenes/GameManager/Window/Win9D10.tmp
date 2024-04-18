@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://clektn0knb0ut"]
 
-[ext_resource type="Script" path="res://Scenes/WindowManager/Window/Window.gd" id="1_cmtvc"]
+[ext_resource type="Script" path="res://Scenes/GameManager/Window/Window.gd" id="1_cmtvc"]
 
 [node name="Window" type="Window"]
 script = ExtResource("1_cmtvc")

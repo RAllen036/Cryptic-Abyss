@@ -13,6 +13,7 @@ script = ExtResource("1_sna6p")
 shape = SubResource("CapsuleShape3D_m228m")
 
 [node name="Neck" type="Marker3D" parent="."]
+unique_name_in_owner = true
 
 [node name="Head" type="Marker3D" parent="Neck"]
 unique_name_in_owner = true

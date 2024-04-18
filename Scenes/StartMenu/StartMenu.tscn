@@ -89,14 +89,13 @@ theme_override_constants/separation = 5
 layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="Start" type="Button" parent="Foregorund/HBoxContainer/VBoxContainer/CenterBox/CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="LevelSelector" type="Button" parent="Foregorund/HBoxContainer/VBoxContainer/CenterBox/CenterContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(140, 50)
 layout_mode = 2
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
-disabled = true
-text = "Start"
+text = "Level Selector"
 
 [node name="Settings" type="Button" parent="Foregorund/HBoxContainer/VBoxContainer/CenterBox/CenterContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(140, 50)
@@ -126,6 +125,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
 
-[connection signal="pressed" from="Foregorund/HBoxContainer/VBoxContainer/CenterBox/CenterContainer/VBoxContainer/HBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Foregorund/HBoxContainer/VBoxContainer/CenterBox/CenterContainer/VBoxContainer/HBoxContainer/LevelSelector" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Foregorund/HBoxContainer/VBoxContainer/CenterBox/CenterContainer/VBoxContainer/HBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Foregorund/HBoxContainer/VBoxContainer/CenterBox/CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
