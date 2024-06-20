@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://3fgk25xpmasg"]
+
+[ext_resource type="Script" path="res://Scenes+/Player/Rigs/Base/Player.gd" id="1_sna6p"]
+[ext_resource type="Script" path="res://Scenes+/StateMachines/Machines/state_machine.gd" id="2_xp3dx"]
+[ext_resource type="Script" path="res://Scenes+/StateMachines/States/Player/IdlePlayerState.gd" id="3_the38"]
+[ext_resource type="Script" path="res://Scenes+/StateMachines/States/Player/WalkingPlayerState.gd" id="4_qnnpx"]
+[ext_resource type="Script" path="res://Scenes+/StateMachines/States/Player/RunningPlayerState.gd" id="5_xsagl"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5mb76"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_m228m"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_sna6p")
+
+[node name="TempBody" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_5mb76")
+
+[node name="BodyCapsule" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_m228m")
+
+[node name="Neck" type="Marker3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+
+[node name="Head" type="Marker3D" parent="Neck"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0)
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_xp3dx")
+
+[node name="IdlePlayerState" type="Node" parent="StateMachine"]
+script = ExtResource("3_the38")
+
+[node name="WalkingPlayerState" type="Node" parent="StateMachine"]
+script = ExtResource("4_qnnpx")
+
+[node name="RunningPlayerState" type="Node" parent="StateMachine"]
+script = ExtResource("5_xsagl")
